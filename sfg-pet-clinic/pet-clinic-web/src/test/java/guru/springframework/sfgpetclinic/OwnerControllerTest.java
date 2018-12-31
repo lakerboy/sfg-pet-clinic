@@ -71,15 +71,4 @@ class OwnerControllerTest {
 
 
 
-//	@Test
-//	void testShowOwner() throws Exception {
-//		Owner owner = new Owner();
-//		owner.setId(3L);
-//		"
-//		when(ownerService.findById(3L)).thenReturn(owner);
-//		
-//		mockMvc.perform(get("/owners/123"))
-//					.andExpect(status().isOk())
-//					.andExpect(view().name("owners/ownerDetails"));
-//	}
 }
