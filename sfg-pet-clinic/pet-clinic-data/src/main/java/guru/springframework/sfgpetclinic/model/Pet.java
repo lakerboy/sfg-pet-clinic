@@ -22,6 +22,18 @@ import lombok.Setter;
 @Table(name = "pets")
 public class Pet extends BaseEntity{
 
+	
+	public Pet(String name, PetType petType, Owner owner, LocalDate birthDate, Set<Visit> visits) {
+		super();
+		this.name = name;
+		this.petType = petType;
+		this.owner = owner;
+		this.birthDate = birthDate;
+		this.visits = visits;
+	}
+	
+	public Pet() {}
+	
 	@Column(name = "name")
 	private String name;
 	
