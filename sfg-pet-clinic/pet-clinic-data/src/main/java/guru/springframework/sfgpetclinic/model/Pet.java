@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -29,7 +31,10 @@ public class Pet extends BaseEntity{
 		this.petType = petType;
 		this.owner = owner;
 		this.birthDate = birthDate;
-		this.visits = visits;
+		
+		if (visits == null || visits.size() > 0) {
+			this.visits = visits;
+		}
 	}
 	
 	public Pet() {}
@@ -46,6 +51,7 @@ public class Pet extends BaseEntity{
 	private Owner owner;
 	
 	@Column(name = "birth_date")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private LocalDate birthDate;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
